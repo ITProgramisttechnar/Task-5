@@ -3,10 +3,9 @@ package hiber.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-@NoArgsConstructor
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "cars")
@@ -25,12 +24,5 @@ public class Car {
     public Car(String model,int series){
         this.model = model;
         this.series = series;
-    }
-    @Override
-    public String toString(){
-        return String.format(
-                "Car{id=%d, model=%s, series=%d}",
-                id,model,series
-        );
     }
 }

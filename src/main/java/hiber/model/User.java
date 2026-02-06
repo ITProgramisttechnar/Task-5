@@ -1,7 +1,10 @@
 package hiber.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
-
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "users")
 public class User {
@@ -23,7 +26,6 @@ public class User {
    @JoinColumn(name="car_id", referencedColumnName = "id")
    private Car car;
 
-   public User() {}
 
    public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
@@ -35,49 +37,5 @@ public class User {
       this.lastName = lastName;
       this.email = email;
       this.car=car;
-   }
-   public Long getId() {
-      return id;
-   }
-
-   public void setId(Long id) {
-      this.id = id;
-   }
-
-   public String getFirstName() {
-      return firstName;
-   }
-
-   public void setFirstName(String firstName) {
-      this.firstName = firstName;
-   }
-
-   public String getLastName() {
-      return lastName;
-   }
-
-   public void setLastName(String lastName) {
-      this.lastName = lastName;
-   }
-
-   public String getEmail() {
-      return email;
-   }
-
-   public void setEmail(String email) {
-      this.email = email;
-   }
-
-   public Car getCar(){return car;}
-
-   public void setCar(Car car){this.car=car;}
-
-   @Override
-   public String toString(){
-     return String.format(
-             "User{id=%d, firstName=%s, lastName=%s, email=%s, car=%s}",
-             id,firstName,lastName,email,
-             (car != null ? String.format("%s %d", car.getModel(), car.getSeries()) : "нет")
-     );
    }
 }
